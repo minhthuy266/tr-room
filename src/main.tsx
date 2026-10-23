@@ -6,7 +6,7 @@ import './style.css';
 const majors=['The Fool','The Magician','The High Priestess','The Empress','The Emperor','The Hierophant','The Lovers','The Chariot','Strength','The Hermit','Wheel of Fortune','Justice','The Hanged Man','Death','Temperance','The Devil','The Tower','The Star','The Moon','The Sun','Judgement','The World'];
 const suits=['Wands','Cups','Swords','Pentacles'];
 const ranks=['Ace','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Page','Knight','Queen','King'];
-const root='https://cdn.jsdelivr.net/gh/seven102161/elaine-tarot-cards@main/cards/';
+const root='https://raw.githubusercontent.com/seven102161/elaine-tarot-cards/main/cards/';
 const prefix:Record<string,string>={Wands:'wa',Cups:'cu',Swords:'sw',Pentacles:'pe'};
 type Card={name:string;image:string};
 const deck:Card[]=[...majors.map((name,i)=>({name,image:root+'ar'+String(i).padStart(2,'0')+'.jpg'})),...suits.flatMap(s=>ranks.map((r,i)=>({name:r+' of '+s,image:root+prefix[s]+(i===0?'ac':i===10?'pa':i===11?'kn':i===12?'qu':i===13?'ki':String(i+1).padStart(2,'0'))+'.jpg'})))];
