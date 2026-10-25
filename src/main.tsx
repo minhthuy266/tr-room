@@ -8,7 +8,7 @@ const suits=['Wands','Cups','Swords','Pentacles'];
 const ranks=['Ace','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Page','Knight','Queen','King'];
 // One consistent 78-card Rider–Waite–Smith collection, indexed by the
 // publisher's documented card codes. Never mix artwork from other decks.
-const root='https://raw.githubusercontent.com/seven102161/elaine-tarot-cards/main/cards/';
+const root=import.meta.env.BASE_URL+'cards/';
 const prefix:Record<string,string>={Wands:'wa',Cups:'cu',Swords:'sw',Pentacles:'pe'};
 type Card={name:string;image:string};
 const codeForRank=(index:number):string=>index===0?'ac':index===10?'pa':index===11?'kn':index===12?'qu':index===13?'ki':String(index+1).padStart(2,'0');

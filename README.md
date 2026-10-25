@@ -14,4 +14,4 @@ npm run build
 
 Repository: `minhthuy266/tr-room`. The Vite base is `/tr-room/`. Go to **Settings → Pages → Build and deployment → GitHub Actions**; pushes to `main` trigger the deploy workflow.
 
-Card artwork comes from the documented 78-image directory at https://github.com/seven102161/elaine-tarot-cards. Images require access to raw.githubusercontent.com. Run `npm run audit:cards` on an Internet-connected computer to verify all 78 image responses.
+All 78 card JPEG files are stored in `public/cards/` and served by GitHub Pages locally (no third-party image host needed). Source: seven102161/elaine-tarot-cards. Run `npm run audit:cards` to validate all files.
