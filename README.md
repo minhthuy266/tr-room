@@ -14,4 +14,4 @@ npm run build
 
 Repository: `minhthuy266/tr-room`. The Vite base is `/tr-room/`. Go to **Settings → Pages → Build and deployment → GitHub Actions**; pushes to `main` trigger the deploy workflow.
 
-Card artwork is referenced from an external public CDN; images require internet connectivity. Tarot is for reflection, not proof of anyone’s thoughts or future.
+Card artwork is loaded from the single Rider–Waite–Smith collection published at https://github.com/sixseeds/tarot-api (78-card canonical manifest). Images require internet connectivity. Run `npm run audit:cards` to check the upstream manifest for 78 distinct card names and image URLs. Tarot is for reflection, not proof of anyone’s thoughts or future.
