@@ -8,7 +8,7 @@ const suits=['Wands','Cups','Swords','Pentacles'];
 const ranks=['Ace','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Page','Knight','Queen','King'];
 // One consistent 78-card Rider–Waite–Smith collection, indexed by the
 // publisher's documented card codes. Never mix artwork from other decks.
-const root='https://petaloverflow.github.io/tarot-api/cards/';
+const root='https://raw.githubusercontent.com/seven102161/elaine-tarot-cards/main/cards/';
 const prefix:Record<string,string>={Wands:'wa',Cups:'cu',Swords:'sw',Pentacles:'pe'};
 type Card={name:string;image:string};
 const codeForRank=(index:number):string=>index===0?'ac':index===10?'pa':index===11?'kn':index===12?'qu':index===13?'ki':String(index+1).padStart(2,'0');
@@ -16,7 +16,7 @@ const deck:Card[]=[
  ...majors.map((name,i)=>({name,image:root+'ar'+String(i).padStart(2,'0')+'.jpg'})),
  ...suits.flatMap(s=>ranks.map((rank,i)=>({name:rank+' of '+s,image:root+prefix[s]+codeForRank(i)+'.jpg'})))
 ];
-const cardsByName=new Map(deck.map(card=>[card.name,card]));
+// Keep a single verified 78-image asset directory; the previous Pages URL failed.\nconst cardsByName=new Map(deck.map(card=>[card.name,card]));
 const normalizeCards=(cards:Card[]):Card[]=>(Array.isArray(cards)?cards:[]).map(c=>cardsByName.get(c?.name)).filter((c):c is Card=>Boolean(c));
 type Reading={id:number;question:string;cards:Card[];date:string};
 const randomized=()=>{const d=[...deck];for(let i=d.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[d[i],d[j]]=[d[j],d[i]]}return d};
