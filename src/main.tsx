@@ -16,7 +16,8 @@ const deck:Card[]=[
  ...majors.map((name,i)=>({name,image:root+'ar'+String(i).padStart(2,'0')+'.jpg'})),
  ...suits.flatMap(s=>ranks.map((rank,i)=>({name:rank+' of '+s,image:root+prefix[s]+codeForRank(i)+'.jpg'})))
 ];
-// Keep a single verified 78-image asset directory; the previous Pages URL failed.\nconst cardsByName=new Map(deck.map(card=>[card.name,card]));
+// Keep a single verified 78-image asset directory; the previous Pages URL failed.
+const cardsByName=new Map(deck.map(card=>[card.name,card]));
 const normalizeCards=(cards:Card[]):Card[]=>(Array.isArray(cards)?cards:[]).map(c=>cardsByName.get(c?.name)).filter((c):c is Card=>Boolean(c));
 type Reading={id:number;question:string;cards:Card[];date:string};
 const randomized=()=>{const d=[...deck];for(let i=d.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[d[i],d[j]]=[d[j],d[i]]}return d};
